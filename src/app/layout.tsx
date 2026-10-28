@@ -1,13 +1,15 @@
-import "./globals.css";
+import type {Metadata} from "next"
+import "./globals.css"
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const metadata: Metadata = {
+  title: "Отделение онкогинекологии",
+  description: "Современная диагностика и лечение",
+}
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
-  );
+  )
 }
