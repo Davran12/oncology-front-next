@@ -1,6 +1,5 @@
-import type {Metadata} from "next"
-import {Marck_Script} from "next/font/google"
-import "./globals.css"
+import type { Metadata } from "next";
+import "./globals.css";
 
 const marck = Marck_Script({
   subsets: ["cyrillic", "latin"],
@@ -9,14 +8,19 @@ const marck = Marck_Script({
 })
 
 export const metadata: Metadata = {
-  title: "Отделение онкогинекологии",
-  description: "Современная диагностика и лечение",
-}
+  title: "Национальный центр онкологии",
+  description:
+    "Национальный центр онкологии и гематологии Кыргызской Республики",
+};
 
-export default function RootLayout({children}: {children: React.ReactNode}) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ru" className={marck.variable}>
-      <body className="antialiased">{children}</body>
+    <html lang="ru">
+      <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">
+        {children}
+      </body>
     </html>
-  )
+  );
 }
