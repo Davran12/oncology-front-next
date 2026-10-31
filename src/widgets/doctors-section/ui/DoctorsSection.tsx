@@ -1,18 +1,20 @@
 "use client"
 
 import Image from "next/image"
-import {useRef} from "react"
+import {useRef, useState} from "react"
+import {DOCTORS_DATA, Doctor} from "./doctors"
 import {Swiper, SwiperRef, SwiperSlide} from "swiper/react"
 import {Navigation} from "swiper/modules"
+import {DoctorModal} from "./DoctorModal"
 
 import "swiper/css"
 import "swiper/css/navigation"
-import {DOCTORS_DATA} from "./doctors"
 
 export function DoctorsSection() {
   const swiperRef = useRef<SwiperRef>(null)
+  const [selectedDoctor, setSelectedDoctor] = useState<Doctor | null>(null)
 
-  const renderCard = (doctor: (typeof DOCTORS_DATA)[number]) => (
+  const renderCard = (doctor: Doctor) => (
     <div
       key={doctor.id}
       className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between h-full"
@@ -46,8 +48,8 @@ export function DoctorsSection() {
 
       <div className="p-5 pt-0">
         <button
-          onClick={() => console.log("Подробнее о враче:", doctor.id)}
-          className="w-full py-2.5 px-4 bg-gray-50 hover:bg-[var(--color-primary-red)] text-gray-700 hover:text-white font-medium text-sm rounded-xl transition-colors border border-gray-200 hover:border-[var(--color-primary-red)]"
+          onClick={() => setSelectedDoctor(doctor)}
+          className="w-full py-2.5 px-4 bg-gray-50 hover:bg-[var(--color-primary-red)] text-gray-700 hover:text-white font-medium text-sm rounded-xl transition-colors border border-gray-200 hover:border-[var(--color-primary-red)] cursor-pointer"
         >
           Подробнее
         </button>
@@ -80,17 +82,28 @@ export function DoctorsSection() {
             <div className="flex lg:hidden items-center gap-2">
               <button
                 onClick={() => swiperRef.current?.swiper.slidePrev()}
-                className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
+                className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
                 aria-label="Назад"
               >
-                ‹
+                <Image
+                  src="/icons/chevron-right.svg"
+                  alt="Назад"
+                  width={20}
+                  height={20}
+                  className="rotate-180"
+                />
               </button>
               <button
                 onClick={() => swiperRef.current?.swiper.slideNext()}
-                className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors"
+                className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-700 hover:bg-gray-100 transition-colors cursor-pointer"
                 aria-label="Вперед"
               >
-                ›
+                <Image
+                  src="/icons/chevron-right.svg"
+                  alt="Вперед"
+                  width={20}
+                  height={20}
+                />
               </button>
             </div>
           </div>
@@ -107,7 +120,7 @@ export function DoctorsSection() {
                 slidesPerView: 2,
               },
             }}
-            className="pb-6"
+            className="pb-6 [&_.swiper-wrapper]:items-start"
           >
             {DOCTORS_DATA.map((doctor) => (
               <SwiperSlide key={doctor.id} className="h-auto flex">
@@ -121,6 +134,12 @@ export function DoctorsSection() {
           {DOCTORS_DATA.map((doctor) => renderCard(doctor))}
         </div>
       </div>
+
+      <DoctorModal
+        doctor={selectedDoctor}
+        isOpen={!!selectedDoctor}
+        onClose={() => setSelectedDoctor(null)}
+      />
     </section>
   )
 }
