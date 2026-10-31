@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const marck = Marck_Script({
+  subsets: ["cyrillic", "latin"],
+  weight: "400",
+  variable: "--font-marck",
+})
+
 export const metadata: Metadata = {
   title: "Национальный центр онкологии",
   description:
