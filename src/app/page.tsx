@@ -1,4 +1,5 @@
 import {DepartmentHero} from "@/widgets/department-hero/ui/DepartmentHero"
+import { DepartmentHeading } from "@/widgets/department-oncogin/ui/DepartmentHeading"
 import {DoctorSidebar} from "@/widgets/Doctor-sidebar/ui/DoctorSidebar"
 import {DoctorsSection} from "@/widgets/doctors-section/ui/DoctorsSection"
 
@@ -16,6 +17,11 @@ export default function Home() {
           <DoctorSidebar />
         </div>
       </div>
+      <DepartmentHeading
+        slug="onkogynekologiya"
+        name="онкогинекологии"
+        description="Современная диагностика и комплексное лечение заболеваний женской репродуктивной системы с заботой о каждом пациенте."
+      />
     </main>
   )
 }
