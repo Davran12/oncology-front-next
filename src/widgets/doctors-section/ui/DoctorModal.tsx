@@ -2,7 +2,8 @@
 
 import Image from "next/image"
 import {useEffect, useRef} from "react"
-import {Doctor} from "./doctors"
+import { Doctor } from "./doctors"
+
 
 interface DoctorModalProps {
   doctor: Doctor | null
