@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Marck_Script } from "next/font/google";
 import { DepartmentTabsProvider } from "@/widgets/department-hero/model/tabs-context"
+import { Footer } from "@/components/Footer/Footer";
 
 const marck = Marck_Script({
     subsets: ["cyrillic", "latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({
         <html lang="ru" className={marck.variable}>
             <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">
                 {children}
+                <Footer/>
             </body>
         </html>
     );

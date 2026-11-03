@@ -1,11 +1,11 @@
 import { DepartmentTabsProvider } from "@/widgets/department-hero/model/tabs-context";
 import { DepartmentHero } from "@/widgets/department-hero/ui/DepartmentHero";
 import { DepartmentHeading } from "@/widgets/department-oncogin/ui/DepartmentHeading";
-import { DoctorSidebar } from "@/widgets/Doctor-sidebar/ui/DoctorSidebar";
+import { DoctorSidebar } from "@/widgets/Doctor-sidebar/ui/DoctorSidebar";https://github.com/Davran12/oncology-front-next/pull/12/conflict?name=src%252Fapp%252Fpage.tsx&ancestor_oid=63c201d8b4e2e1f102b0834ba0b03018b59034b7&base_oid=0970de3925e8c2caa29928ca73b8fa42d6099502&head_oid=666f2664f3114fbf5f62c9e0aa47ca9aed65bef4
 import { DoctorsSection } from "@/widgets/doctors-section/ui/DoctorsSection";
 import { DepartmentHeadSection } from "@/components/department-head/DepartmentHeadSection";
 import type { DepartmentHead } from "@/components/department-head/department-head.types";
-import AboutDepartment from "@/components/department/AboutDepartment";
+import NearUs from "@/components/NearUs/NearUs";
 
 const mockHead: DepartmentHead = {
   fullName: "Абдыкеримова Чолпон Каныбековна",
@@ -25,24 +25,13 @@ export default function Page() {
       <DepartmentHeadSection head={mockHead} />
 
       <main className="mx-auto flex max-w-[1200px] flex-col gap-8 px-4 py-8">
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_380px]">
-          <div className="order-1 min-w-0 lg:order-1">
-            <DoctorsSection />
-          </div>
-
-          <div className="order-2 w-full lg:order-2 lg:pt-[104px]">
-            <DoctorSidebar />
-          </div>
-        </div>
-
-        <AboutDepartment />
-
-        <DepartmentHeading
-          slug="onkogynekologiya"
-          name="онкогинекологии"
-          description="Современная диагностика и комплексное лечение заболеваний женской репродуктивной системы с заботой о каждом пациенте."
-        />
+        <DoctorsSection />
+        <NearUs />
       </main>
+
+      <div className="mx-auto max-w-[1200px] px-4 pb-8">
+        <DepartmentStats />
+      </div>
     </DepartmentTabsProvider>
   );
 }
