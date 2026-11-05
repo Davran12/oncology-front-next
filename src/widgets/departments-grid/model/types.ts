@@ -4,4 +4,6 @@ export type Department = {
   title: string;
   description: string;
   imageUrl: string;
+  diseases?: string[];
+  treatments?: string[];
 };
