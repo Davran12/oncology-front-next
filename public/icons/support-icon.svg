@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <g stroke="#C7D6E8" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Headset and head -->
+    <path d="M22 48V40a28 28 0 0 1 56 0v8"/>
+    <path d="M22 43h8v22h-8a5 5 0 0 1-5-5V48a5 5 0 0 1 5-5Z"/>
+    <path d="M78 43h-8v22h8a5 5 0 0 0 5-5V48a5 5 0 0 0-5-5Z"/>
+    <path d="M30 43v-7c0-3 2-5 5-5 8 0 15-3 20-8 5 7 11 10 17 11v28c0 12-10 21-22 21S30 74 30 62V43Z"/>
+    <path d="M42 68c3 4 7 6 12 6s9-2 12-6"/>
+    <path d="M46 64h8"/>
+    <!-- Shoulders -->
+    <path d="M15 91c2-12 12-19 26-21"/>
+    <path d="M85 91c-2-12-12-19-26-21"/>
+    <path d="M41 70c4 4 9 6 14 6s10-2 14-6"/>
+  </g>
+</svg>
